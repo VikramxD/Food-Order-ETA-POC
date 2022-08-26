@@ -1,7 +1,7 @@
 Amazon ML Challenge
 ==============================
 
-ML models for amazon ml challenge 
+ML models for Amazon business research engineer hiring challenge @ https://assessment.hackerearth.com/challenges/hiring/amazon-business-research-analyst-hiring-challenge/
 
 Project Organization
 ------------
