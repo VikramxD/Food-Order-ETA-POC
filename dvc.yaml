@@ -1,0 +1,11 @@
+stages:
+  train:
+    cmd: clear
+    deps:
+    - data
+    - reports
+    outs:
+    - notebooks
+    plots:
+    - src/visualization:
+        cache: false
