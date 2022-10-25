@@ -1,11 +1,16 @@
 stages:
   train:
-    cmd: clear
+    cmd: m
     deps:
     - data
-    - reports
+    - src
+    params:
+    - parameters/params.yaml:
     outs:
-    - notebooks
+    - models
+    metrics:
+    - metrics/metrics.json:
+        cache: false
     plots:
-    - src/visualization:
+    - visualization:
         cache: false
