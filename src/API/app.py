@@ -30,7 +30,7 @@ async def estimate_time(features: Features):
     data_in = { 0 : data['Delivery_person_Ratings' ], 1: data['Restaurant_latitude']  , 2: data['Delivery_location_latitude'], 3: data['Delivery_location_longitude'],4 :data['Weatherconditions'],5: data['Road_traffic_density'] ,6: data['Vehicle_condition'],7: data['Type_of_order'], 8:data['Type_of_vehicle'],9:data['multiple_deliveries'], 10: data['Festival'],11:data['City']}
     values_list = list(data_in.values())
     
-    prediction = loaded_model.predict(list(values_list))
+    prediction = loaded_model.predict([values_list])
    
             
     return {
