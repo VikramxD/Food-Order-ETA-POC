@@ -6,11 +6,7 @@ import pickle
 import numpy as np
 import pandas as pd
 
-
-
 predictor = bentoml.sklearn.get("orderpredictor:lcjrxys4ewkvo6ty").to_runner()
-
-
 service = bentoml.Service(
     "OrderPrediction", runners=[predictor]
 )
