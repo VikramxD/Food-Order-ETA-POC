@@ -89,3 +89,7 @@ target/
 .mypy_cache/
 /models
 /parameters
+
+
+#configs
+/Users/vicariousvision/Analytics Stuff/amazon_ml_challenge/.streamlit/secrets.toml
