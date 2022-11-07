@@ -17,6 +17,9 @@ service = bentoml.Service(
 
 
 
+
+
+
 @service.api(input=NumpyNdarray(),output=NumpyNdarray())
 def predict(input: np.ndarray) -> np.ndarray:
     result = predictor.run(input)

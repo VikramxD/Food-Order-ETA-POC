@@ -1,56 +1,28 @@
-import random
-from faker import Faker
-from h2o_wave import main, app, Q, ui
-
-fake = Faker()
-
-_id = 0
+import streamlit as st
 
 
-class Issue:
-    def __init__(self, text: str, status: str, progress: float, icon: str, notifications: str):
-        global _id
-        _id += 1
-        self.id = f'I{_id}'
-        self.text = text
-        self.status = status
-        self.views = 0
-        self.progress = progress
-        self.icon = icon
-        self.notifications = notifications
+st.write("## Order Prediction Appliction Frontend POC")
 
+with st.form("my_form"):
+   st.write("Provide the Following Information")
+   Delivery_person_ID = st.text_input(" Delivery_person_ID", " ")
+   Delivery_person_Age = st.text_input(" Delivery_person_Age", " ")
+   Delivery_person_Ratings = st.text_input(" Delivery_person_Ratings", " ")
+   Restaurant_latitude = st.text_input(" Restaurant_latitude", " ")
+   Restaurant_longitude = st.text_input(" Restaurant_longitude", " ")
+   Delivery_location_latitude = st.text_input(" Delivery_location_latitude", " ")
+   Delivery_location_longitude = st.text_input(" Delivery_location_longitude", " ")
+   Time_Order_picked = st.text_input("Time_Order_picked", " ")
+   Weatherconditions = st.text_input(" Weatherconditions", " ")
+   Road_traffic_density = st.text_input(" Road_traffic_density", " ")
+   Vehicle_condition = st.text_input(" Vehicle_condition", " ")
+   Type_of_order = st.text_input(" Type_of_order", " ")
+   Type_of_vehicle = st.text_input(" Type_of_vehicle", " ")
+   multiple_deliveries = st.text_input(" multiple_deliveries", " ")
+   Festival = st.text_input(" Festival", " ")
+   City = st.text_input(" City", " ")
+   Time_taken = st.text_input(" Time_taken", " ")
+   pickup_time = st.text_input(" pickup_time", " ")
+   submitted = st.form_submit_button("Submit")
+   
 
-# Create some issues
-issues = [
-    Issue(
-        text=fake.sentence(),
-        status=('Closed' if i % 2 == 0 else 'Open'),
-        progress=random.random(),
-        icon=('BoxCheckmarkSolid' if random.random() > 0.5 else 'BoxMultiplySolid'),
-        notifications=('Off' if random.random() > 0.5 else 'On')) for i in range(100)
-]
-
-# Create columns for our issue table.
-columns = [
-    ui.table_column(name='text', label='Issue'),
-    ui.table_column(name='status', label='Status'),
-    ui.table_column(name='notifications', label='Notifications'),
-    ui.table_column(name='done', label='Done', cell_type=ui.icon_table_cell_type()),
-    ui.table_column(name='views', label='Views'),
-    ui.table_column(name='progress', label='Progress', cell_type=ui.progress_table_cell_type()),
-]
-
-
-@app('/demo')
-async def serve(q: Q):
-    q.page['form'] = ui.form_card(box='1 1 -1 11', items=[
-        ui.table(
-            name='issues',
-            columns=columns,
-            rows=[ui.table_row(
-                name=issue.id, cells=[issue.text, issue.status, issue.notifications, issue.icon, str(issue.views),
-                                      str(issue.progress)]) for issue in issues],
-            downloadable=True,
-        )
-    ])
-    await q.page.save()
