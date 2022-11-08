@@ -33,7 +33,7 @@ with st.form("my_form"):
    submitted = st.form_submit_button('Submit')
 if submitted:
     st.write("Calculating ETA")
-    db.put({"key": 0 [Delivery_person_ID,Delivery_person_Age,Delivery_person_Ratings,Delivery_location_latitude,Delivery_location_longitude,Restaurant_latitude,Restaurant_longitude,Time_Order_picked,Weatherconditions,Road_traffic_density,Vehicle_condition,Type_of_order,Type_of_vehicle,multiple_deliveries,Festival,City,Time_taken,pickup_time]})
+    db.put([Delivery_person_ID,Delivery_person_Age,Delivery_person_Ratings,Delivery_location_latitude,Delivery_location_longitude,Restaurant_latitude,Restaurant_longitude,Time_Order_picked,Weatherconditions,Road_traffic_density,Vehicle_condition,Type_of_order,Type_of_vehicle,multiple_deliveries,Festival,City,Time_taken,pickup_time])
 
 
 
