@@ -15,7 +15,7 @@ with st.form("my_form"):
    Delivery_person_ID = st.text_input('Delivery_person_ID')
    Delivery_person_Age = st.number_input('Delivery_person_Age')
    Delivery_person_Ratings = st.number_input('Delivery_person_Ratings')
-   Restaurant_latitude = st.number_input_input('Restaurant_latitude')
+   Restaurant_latitude = st.number_input('Restaurant_latitude')
    Restaurant_longitude = st.text_input('Restaurant_longitude')
    Delivery_location_latitude = st.text_input('Delivery_location_latitude')
    Delivery_location_longitude = st.text_input('Delivery_location_longitude')
