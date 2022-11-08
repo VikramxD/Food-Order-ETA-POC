@@ -13,9 +13,9 @@ st.write("## Order Prediction Appliction Frontend POC")
 with st.form("my_form"):
    st.write("Provide the Following Information")
    Delivery_person_ID = st.text_input('Delivery_person_ID')
-   Delivery_person_Age = st.text_input('Delivery_person_Age')
-   Delivery_person_Ratings = st.text_input('Delivery_person_Ratings')
-   Restaurant_latitude = st.text_input('Restaurant_latitude')
+   Delivery_person_Age = st.number_input('Delivery_person_Age')
+   Delivery_person_Ratings = st.number_input('Delivery_person_Ratings')
+   Restaurant_latitude = st.number_input_input('Restaurant_latitude')
    Restaurant_longitude = st.text_input('Restaurant_longitude')
    Delivery_location_latitude = st.text_input('Delivery_location_latitude')
    Delivery_location_longitude = st.text_input('Delivery_location_longitude')
@@ -33,7 +33,7 @@ with st.form("my_form"):
    submitted = st.form_submit_button('Submit')
 if submitted:
     st.write("Calculating ETA")
-    db.put([Delivery_person_ID,Delivery_person_Age,Delivery_person_Ratings,Delivery_location_latitude,Delivery_location_longitude,Restaurant_latitude,Restaurant_longitude,Time_Order_picked,Weatherconditions,Road_traffic_density,Vehicle_condition,Type_of_order,Type_of_vehicle,multiple_deliveries,Festival,City,Time_taken,pickup_time])
+    db.put({"key": 0 [Delivery_person_ID,Delivery_person_Age,Delivery_person_Ratings,Delivery_location_latitude,Delivery_location_longitude,Restaurant_latitude,Restaurant_longitude,Time_Order_picked,Weatherconditions,Road_traffic_density,Vehicle_condition,Type_of_order,Type_of_vehicle,multiple_deliveries,Festival,City,Time_taken,pickup_time]})
 
 
 
