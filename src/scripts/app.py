@@ -6,7 +6,7 @@ from deta import Deta
 import requests
 
 
-API_ENDPOINT = "http://0.0.0.0:3000/#/Service%20APIs/order_prediction__predict"
+API_ENDPOINT = "http://127.0.0.1:3000/predict"
 
 deta = Deta(st.secrets["deta_key"])
 db = deta.Base("UserData")
