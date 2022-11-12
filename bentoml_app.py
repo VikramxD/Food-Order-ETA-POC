@@ -1,10 +1,13 @@
 import bentoml
 import bentoml.sklearn
-from bentoml.io import NumpyNdarray,PandasDataFrame,JSON
+from bentoml.io import NumpyNdarray,JSON
 from pydantic import BaseModel
 import pickle
 import numpy as np
 import pandas as pd
+
+
+
 
 
 
@@ -14,32 +17,29 @@ service = bentoml.Service(
 )
 
 
-class Features(BaseModel):
+class Order_Features(BaseModel):
+     Delivery_person_Ratings:float
+     Restaurant_latitude:float
+     Delivery_location_latitude:float
+     Delivery_location_longitude:float
+     Weatherconditions :int
+     Road_traffic_density :int
+     Type_of_order:int
+     Type_of_vehicle:int
+     multiple_deliveries:float
+     Festival:int
+     City_Type:int
 
-    Delivery_person_Ratings: float 
-    Restaurant_latitude: float
-    Restaurant_longitude: float 
-    Delivery_location_latitude:float 
-    Delivery_location_longitude:float
-    Weatherconditions:int 
-    Road_traffic_density: float
-    Vehicle_condition: int
-    Type_of_order:int
-    Type_of_vehicle:int
-    multiple_deliveries:int
-    Festival:int
-    City_Type:int
-
+input_specifications = JSON(pydantic_model=Order_Features)
 
 
 
-
-
-
-@service.api(input=JSON(pydantic_model=Features),output=NumpyNdarray())
-def predict(features: Features) -> np.ndarray:
-    df = pd.DataFrame(features.dict(),index=[0])
-    features_array = np.array(df)
-    result = predictor.run(features_array)
+@service.api(input=input_specifications, output=NumpyNdarray())
+def predict(input_data: Order_Features) -> np.array:
+    input_list = list(input_data.values())
+    input_array = np.array(input_list)
+    result = predictor.run(list(input_array))
     return result
+
+
 
