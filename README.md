@@ -27,7 +27,4 @@ Follow the instructions in the Jupyter notebook to use the application. The note
 
 This application was developed using scikit-learn and xgboost.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
